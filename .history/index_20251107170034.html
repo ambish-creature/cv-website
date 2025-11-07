@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Photos | Toto Wang</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>Personal Photos</h1>
+      <div class="cta">
+        <a class="btn" href="index.html">Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="gallery">
+      <figure>
+        <img src="images/1.jpg" alt="Photo 1">
+        <figcaption>Photo 1</figcaption>
+      </figure>
+      <figure>
+        <img src="images/1.jpeg" alt="Photo 1">
+        <figcaption>Photo 1</figcaption>
+      </figure>
+      <figure>
+        <img src="images/2.jpg" alt="Photo 2">
+        <figcaption>Photo 2</figcaption>
+      </figure>
+      <figure>
+        <img src="images/2.jpeg" alt="Photo 2">
+        <figcaption>Photo 2</figcaption>
+      </figure>
+      <figure>
+        <img src="images/3.jpg" alt="Photo 3">
+        <figcaption>Photo 3</figcaption>
+      </figure>
+      <figure>
+        <img src="images/3.jpeg" alt="Photo 3">
+        <figcaption>Photo 3</figcaption>
+      </figure>
+      <figure>
+        <img src="images/4.jpg" alt="Photo 4">
+        <figcaption>Photo 4</figcaption>
+      </figure>
+      <figure>
+        <img src="images/4.jpeg" alt="Photo 4">
+        <figcaption>Photo 4</figcaption>
+      </figure>
+      <figure>
+        <img src="images/5.jpg" alt="Photo 5">
+        <figcaption>Photo 5</figcaption>
+      </figure>
+      <figure>
+        <img src="images/5.jpeg" alt="Photo 5">
+        <figcaption>Photo 5</figcaption>
+      </figure>
+      <figure>
+        <img src="images/6.jpg" alt="Photo 6">
+        <figcaption>Photo 6</figcaption>
+      </figure>
+      <figure>
+        <img src="images/6.jpeg" alt="Photo 6">
+        <figcaption>Photo 6</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Toto Wang · <a href="https://wmt615.com">wmt615.com</a></p>
+    </div>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>

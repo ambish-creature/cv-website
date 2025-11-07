@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Photos | Toto Wang</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>Personal Photos</h1>
+      <div class="cta">
+        <a class="btn" href="index.html">Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <div id="gallery" class="gallery"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Toto Wang · <a href="https://wmt615.com">wmt615.com</a></p>
+    </div>
+    <script>
+      // Set current year
+      document.getElementById('year').textContent = new Date().getFullYear();
+      // Generate gallery items 1..6
+      (function(){
+        const gallery = document.getElementById('gallery');
+        if (!gallery) return;
+        for (let i = 1; i <= 6; i++) {
+          const fig = document.createElement('figure');
+          const img = document.createElement('img');
+          img.src = `personal_photo/${i}.jpeg`;
+          img.alt = `Photo ${i}`;
+          img.loading = 'lazy';
+          const cap = document.createElement('figcaption');
+          cap.textContent = `Photo ${i}`;
+          fig.appendChild(img);
+          fig.appendChild(cap);
+          gallery.appendChild(fig);
+        }
+      })();
+    </script>
+  </footer>
+</body>
+</html>

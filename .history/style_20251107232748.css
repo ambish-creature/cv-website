@@ -58,39 +58,17 @@ header, main, section, footer { position: relative; z-index: 1; }
 .btn{
   display:inline-block;
   padding:10px 16px;
-  border-radius:999px;
-  border:2px solid var(--accent);
-  background: transparent;
-  /* gradient-filled text */
-  color: transparent;
-  background-image: linear-gradient(135deg, var(--accent), var(--accent-2));
-  -webkit-background-clip: text;
-          background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 0.6px var(--accent);
-  font-weight:600;
+  border-radius:10px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #fff; font-weight: 600;
+  border: 1px solid rgba(0,0,0,.04);
   box-shadow: var(--shadow);
-  transition:
-    transform .18s ease,
-    box-shadow .18s ease,
-    background-color .18s ease,
-    -webkit-text-fill-color .18s ease,
-    -webkit-text-stroke .18s ease;
 }
-.btn:hover,
-.btn:focus-visible{
-  transform: translateY(-2px) scale(1.03);
-  background: var(--accent);
-  color:#fff;
-  -webkit-text-fill-color:#fff;
-  -webkit-text-stroke:0 transparent;
-  background-image:none;
-  text-decoration:none;
-}
+.btn:hover{ filter: brightness(1.05); text-decoration:none; }
 .btn.small{ padding:8px 12px; font-size:.9rem; }
 .btn.btn-secondary{
-  border-color: var(--accent);
-  background: transparent;
+  background: transparent; color: var(--text);
+  border: 1px solid var(--border);
 }
 
 /* ===================== Hero (split + parallax-ready) ===================== */
@@ -99,7 +77,6 @@ header, main, section, footer { position: relative; z-index: 1; }
   position: relative;
   background: transparent;
   border-bottom: 1px solid var(--border);
-  isolation: isolate; /* ensure pseudo sits behind content but above bg */
 }
 .hero-grid{ display:grid; gap:28px; grid-template-columns: 1fr; align-items:center; }
 @media (min-width: 900px){ .hero-grid{ grid-template-columns: 1.2fr .8fr; } }
@@ -475,45 +452,18 @@ section:not(.hero):not(.chapters) > .container a:hover{
 .hero::before{
   content:"";
   position:absolute; inset:0;
-  /* Darkened "white.jpeg" as hero background with soft fade-out */
-  background:
-    linear-gradient(0deg, rgba(0,0,0,.10), rgba(0,0,0,.10)),
-    url("background-photos/white.jpeg") center / cover no-repeat;
-  filter: grayscale(20%) brightness(.92) contrast(1.05) saturate(1.02);
-  /* Smoothly fade to transparent toward the bottom to avoid a white bar */
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 55%, rgba(0,0,0,.7) 72%, rgba(0,0,0,0) 92%);
-          mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 55%, rgba(0,0,0,.7) 72%, rgba(0,0,0,0) 92%);
+  /* white-to-transparent curtain that fades out toward 40% of hero */
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgba(255,255,255,0.92) 14%,
+    rgba(255,255,255,0.65) 26%,
+    rgba(255,255,255,0.28) 40%,
+    rgba(255,255,255,0.00) 60%
+  );
   z-index:0; pointer-events:none;
 }
 .hero > .container { position: relative; z-index: 1; }
-
-/* Hero portrait on the right */
-.hero .hero-media{
-  background: url("personal_photo/1.jpeg") center / cover no-repeat;
-  min-height: clamp(240px, 38vh, 460px);
-  border-radius: 18px;
-  border: 1px solid rgba(15,23,42,.08);
-  box-shadow: 0 20px 40px rgba(15,23,42,.15);
-  overflow: hidden;
-  position: relative;
-}
-/* Hide the placeholder <img> inside hero-media since we use CSS bg */
-.hero .hero-media img{ display:none; }
-
-/* Soft glossy overlay for the card */
-.hero .hero-media::after{
-  content:"";
-  position:absolute; inset:0;
-  background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0) 40%, rgba(0,0,0,.08) 100%);
-  pointer-events:none;
-}
-
-/* Make hero headings dark on the new light top gradient */
-.hero .hero-copy h2,
-.hero .hero-copy p{
-  color:#0f172a;      /* slate-900 */
-  text-shadow:none;   /* remove white glow */
-}
 
 /* 2) Header links become pill buttons that pop on hover */
 .header {
@@ -522,54 +472,22 @@ section:not(.hero):not(.chapters) > .container a:hover{
   background: rgba(255,255,255,0.82);
   border-bottom: 1px solid var(--border);
 }
-/* Remove list bullets and lay out nav links horizontally */
-.header .nav ul{
-  list-style:none;
-  display:flex;
-  gap:10px;
-  padding:0;
-  margin:0;
-  flex-wrap:wrap;
-  align-items:center;
-}
 .header .nav a{
   display:inline-block;
-  padding:8px 14px;
-  border-radius:999px;
-  background: transparent;             /* outlined by default */
-  border: 2px solid var(--accent);
-  /* gradient-filled text */
-  color: transparent;
-  background-image: linear-gradient(135deg, var(--accent), var(--accent-2));
-  -webkit-background-clip: text;
-          background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 0.6px var(--accent); /* subtle outline for legibility */
+  padding:8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.95);
+  color: #0f172a; /* dark text on light pill */
+  border: 1px solid rgba(15,23,42,.08);
   box-shadow: 0 4px 12px rgba(15,23,42,.06);
-  transition: 
-    transform .18s ease,
-    box-shadow .18s ease,
-    background-color .18s ease,
-    color .18s ease,
-    -webkit-text-fill-color .18s ease,
-    -webkit-text-stroke .18s ease;
-  text-shadow: none;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+  text-shadow: none; /* override earlier readability shadow */
 }
-.header .nav a:hover,
-.header .nav a:focus-visible{
+.header .nav a:hover{
   transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 10px 22px rgba(59,130,246,.25);
-  /* pop to solid blue pill with white text */
-  background: var(--accent);
-  color:#fff;
-  -webkit-text-fill-color:#fff;
-  -webkit-text-stroke: 0 transparent;
-  background-image: none; /* disable gradient text when filled */
+  box-shadow: 0 10px 22px rgba(15,23,42,.12);
+  background: #ffffff;
   text-decoration: none;
-}
-.header .nav a:active{
-  transform: translateY(0) scale(0.99);
-  box-shadow: 0 6px 16px rgba(59,130,246,.25);
 }
 
 /* 3) Auto-invert headings over changing backgrounds using blend modes */
@@ -585,68 +503,4 @@ section:not(.hero):not(.chapters) > .container a:hover{
   color:#fff; 
   mix-blend-mode: difference; 
   text-shadow: 0 2px 10px rgba(0,0,0,.25);
-}
-/* ===================== Header Auto-Theme, Mobile Hero Order, Scroll Cue ===================== */
-
-/* Header theme variants (toggled by small script in index.html) */
-.header.theme-light{
-  background: rgba(255,255,255,0.82);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(8px);
-}
-.header.theme-solid{
-  background: rgba(15,23,42,0.78); /* dark semi-opaque */
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  backdrop-filter: blur(8px);
-}
-/* Nav pill overrides per theme */
-.header.theme-solid .nav a{
-  border-color: rgba(255,255,255,.9);
-  /* make text white (no gradient) until hover */
-  color:#fff;
-  -webkit-text-fill-color:#fff;
-  -webkit-text-stroke: 0 transparent;
-  background-image: none;
-}
-.header.theme-solid .nav a:hover,
-.header.theme-solid .nav a:focus-visible{
-  background: var(--accent);
-  color:#fff;
-  -webkit-text-fill-color:#fff;
-  box-shadow: 0 10px 22px rgba(59,130,246,.35);
-}
-
-/* Mobile-first: show portrait above text on small screens */
-.media-first-mobile .hero-media{ order: -1; }
-@media (min-width: 900px){
-  .media-first-mobile .hero-media{ order: initial; }
-}
-
-/* Scroll cue styling and animation (center bottom of hero) */
-.scroll-cue{
-  position: absolute;
-  left: 50%;
-  bottom: clamp(8px, 2.5vh, 18px);
-  transform: translateX(-50%);
-  display: inline-grid;
-  place-items: center;
-  width: 44px; height: 44px;
-  border-radius: 999px;
-  border: 2px solid rgba(15,23,42,.25);
-  background: rgba(255,255,255,.7);
-  color: #0f172a;
-  z-index: 2; /* above hero ::before */
-  transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
-}
-.scroll-cue:hover{
-  transform: translateX(-50%) translateY(-2px);
-  box-shadow: 0 10px 22px rgba(15,23,42,.15);
-  background: #fff;
-  border-color: rgba(15,23,42,.35);
-}
-.header.theme-solid + .hero .scroll-cue{
-  /* if header is solid (post-hero), cue may be less visible, so invert */
-  background: rgba(15,23,42,.75);
-  color:#fff;
-  border-color: rgba(255,255,255,.3);
 }

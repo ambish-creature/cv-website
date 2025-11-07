@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="logo">My Portfolio</h1>
+        <nav class="nav">
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Global Cross-fade Background -->
+    <div class="global-bg" aria-hidden="true">
+      <div class="g-bg g-bgA is-active"></div>
+      <div class="g-bg g-bgB"></div>
+      <div class="g-overlay"></div>
+    </div>
+
+    <section class="hero parallax">
+      <div class="bg-chapter" data-idx="1" data-bg="background-photos/black.jpeg" data-tint="rgba(59,130,246,.10)"></div>
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h2>Welcome to my portfolio</h2>
+            <p>Discover my work, skills, and projects.</p>
+          </div>
+          <div class="hero-media">
+            <img src="background-photos/black.jpeg" alt="Hero image">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <div class="bg-chapter" data-idx="2" data-bg="background-photos/white.jpeg" data-tint="rgba(139,92,246,.10)"></div>
+      <div class="container reveal">
+        <h3>Features</h3>
+        <ul>
+          <li>Responsive Design</li>
+          <li>Cross-browser Compatibility</li>
+          <li>Performance Optimized</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="bg-chapter" data-idx="3" data-bg="background-photos/black.jpeg" data-tint="rgba(16,185,129,.10)"></div>
+      <div class="container reveal">
+        <h3>About Me</h3>
+        <p>
+          I am a passionate developer with experience in web technologies,
+          creating beautiful and functional websites.
+        </p>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="bg-chapter" data-idx="4" data-bg="background-photos/white.jpeg" data-tint="rgba(234,179,8,.10)"></div>
+      <div class="container reveal">
+        <h3>Projects</h3>
+        <ul>
+          <li><a href="#">Project One</a></li>
+          <li><a href="#">Project Two</a></li>
+          <li><a href="#">Project Three</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="blog" class="blog">
+      <div class="bg-chapter" data-idx="5" data-bg="background-photos/black.jpeg" data-tint="rgba(99,102,241,.10)"></div>
+      <div class="container reveal">
+        <h3>Blog</h3>
+        <ul>
+          <li><a href="#">Blog Post One</a></li>
+          <li><a href="#">Blog Post Two</a></li>
+          <li><a href="#">Blog Post Three</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="newsletter" class="newsletter">
+      <div class="container reveal">
+        <h3>Newsletter</h3>
+        <form>
+          <input type="email" placeholder="Your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container reveal">
+        <h3>Contact</h3>
+        <form>
+          <input type="text" placeholder="Your name" required />
+          <input type="email" placeholder="Your email" required />
+          <textarea placeholder="Your message" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; <span id="year"></span> My Portfolio. All rights reserved.</p>
+      </div>
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,101 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 2rem 0;
+}
+section {
+  margin: 2rem auto;
+  max-width: 600px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  color: #333;
+}
+a {
+  color: #0078ff;
+  text-decoration: none;
+}
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    background: #222;
+}
+
+/* ===================== Motion Blur Portfolio Showcase ===================== */
+/* Single hero-style background using background-photos/Unknown.jpeg */
+.showcase-mb{
+  position:relative;
+  height: min(92vh, 820px);
+  margin: 2rem auto;
+  max-width: 1100px;
+  border-radius: 20px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  isolation:isolate;
+}
+/* Background layer: uses your Unknown.jpeg and drifts subtly for depth */
+.showcase-mb .mb-bg{
+  position:absolute; inset:-10%;
+  background: url("background-photos/Unknown.jpeg") center / cover no-repeat;
+  filter: blur(2px) saturate(1.05) contrast(1.03);
+  transform: translate3d(0,0,0) scale(1.08);
+  animation: bgDrift 26s ease-in-out infinite alternate;
+  will-change: transform, filter;
+}
+@keyframes bgDrift{
+  0%   { transform: scale(1.05) translate3d(-1vw,-1vh,0); filter: blur(1px); }
+  100% { transform: scale(1.12) translate3d( 2vw, 1vh,0); filter: blur(2px); }
+}
+/* Dim overlay so text is readable regardless of image brightness */
+.showcase-mb .mb-overlay{
+  position:absolute; inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.35));
+  pointer-events:none;
+}
+/* Optional track/slide wrappers so this CSS also supports the multi-slide version */
+.showcase-mb .mb-track{ position:relative; width:100%; height:100%; }
+.showcase-mb .mb-slide{
+  position:absolute; inset:0;
+  display:grid; place-items:center;
+  opacity:1;
+}
+.showcase-mb .mb-slide img{
+  display:none; /* In single-background mode we hide figure <img>. The bg is the visual. */
+}
+.showcase-mb .mb-slide figcaption{
+  position:absolute; left:50%; bottom: 16px; transform: translateX(-50%);
+  background: rgba(0,0,0,.38);
+  border:1px solid rgba(255,255,255,.35);
+  padding: 8px 12px; border-radius: 999px;
+  color: #fff; font-weight:600; font-size: 1rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.25);
+}
+/* Controls (kept minimal in case you re-enable multiple slides later) */
+.mb-controls{ display:none; }
+.mb-dots, .mb-btn{ display:none; }
+
+/* Accessibility: reduce motion if user prefers */
+@media (prefers-reduced-motion: reduce){
+  .showcase-mb .mb-bg{ animation: none !important; transform: none !important; filter: none !important; }
+}

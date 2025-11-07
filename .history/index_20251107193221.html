@@ -1,0 +1,50 @@
+/* ===================== Readability / Contrast Improvements ===================== */
+
+/* Make header items readable on dark backgrounds */
+.header .logo { color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,.55); }
+.header .nav a {
+  color: #e5e7eb;
+  text-shadow: 0 2px 12px rgba(0,0,0,.55);
+}
+.header .nav a:hover { color: #fff; }
+
+/* Hero copy pops on the dark bg */
+.hero .hero-copy h2,
+.hero .hero-copy p {
+  color: #fff;
+  text-shadow: 0 4px 24px rgba(0,0,0,.55);
+}
+
+/* Increase base overlay strength very slightly for better foreground contrast */
+.g-overlay{
+  background:
+    radial-gradient(60% 50% at 50% 50%, var(--bg-tint, rgba(0,0,0,.16)), rgba(0,0,0,.62)),
+    linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.18));
+}
+
+/* Add a soft glass panel behind section content (except hero/chapters) */
+section:not(.hero):not(.chapters) > .container{
+  background: rgba(255,255,255,0.78);
+  -webkit-backdrop-filter: saturate(120%) blur(6px);
+  backdrop-filter: saturate(120%) blur(6px);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  padding: clamp(16px, 3vw, 24px);
+}
+section:not(.hero):not(.chapters) > .container h3,
+section:not(.hero):not(.chapters) > .container p,
+section:not(.hero):not(.chapters) > .container li,
+section:not(.hero):not(.chapters) > .container a{
+  color: #0f172a; /* slate-900 */
+}
+section:not(.hero):not(.chapters) > .container a:hover{
+  color: #1d4ed8; /* blue-700 */
+}
+
+/* Chapters text legibility on dark */
+.chapters .chap-content h2{ color:#fff; text-shadow: 0 8px 30px rgba(0,0,0,.55); }
+.chapters .chap-content p{ color: rgba(255,255,255,.95); text-shadow: 0 6px 24px rgba(0,0,0,.55); }
+
+/* Optional: subtle text-outline for any element marked .on-dark */
+.on-dark{ color:#fff; text-shadow: 0 2px 12px rgba(0,0,0,.6), 0 0 1px rgba(0,0,0,.8); }

@@ -7,21 +7,15 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header class="header theme-light" data-auto-theme>
+    <header class="header">
       <div class="container">
         <h1 class="logo">My Portfolio</h1>
-        <nav class="nav" aria-label="Primary">
+        <nav class="nav">
           <ul>
             <li><a href="#features">Features</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#blog">Blog</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#newsletter">Subscribe</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -37,56 +31,17 @@
 
     <section class="hero parallax">
       <div class="bg-chapter" data-idx="1" data-bg="background-photos/black.jpeg" data-tint="rgba(59,130,246,.10)"></div>
-      <div class="container hero-light">
-        <div class="hero-grid media-first-mobile">
+      <div class="container">
+        <div class="hero-grid">
           <div class="hero-copy">
             <h2>Welcome to my portfolio</h2>
             <p>Discover my work, skills, and projects.</p>
-            <div class="cta-row">
-              <a class="btn" href="#projects">View Projects</a>
-              <a class="btn btn-secondary" href="#contact">Contact Me</a>
-            </div>
           </div>
           <div class="hero-media">
-            <img src="personal_photo/1.jpeg" alt="Toto Wang portrait in the hero section" />
-          </div>
-        </div>
-        <a class="scroll-cue" href="#features" aria-label="Scroll down to content">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
-    </section>
-    <div class="nav-theme-sentinel" aria-hidden="true"></div>
-
-    <!-- Pinned Chapters (Apple-style sticky sequence) -->
-    <section class="chapters" aria-label="Scroll Story">
-      <div class="chapters-sticky">
-        <!-- Background stage (JS will ensure layers exist and cross-fade) -->
-        <div class="chapters-stage" aria-hidden="true"></div>
-
-        <!-- Centered changing copy (JS toggles visibility via data-active / .is-active) -->
-        <div class="chapters-center">
-          <div class="chap-content" data-idx="1" data-bg="background-photos/black.jpeg">
-            <h2>Speed</h2>
-            <p class="muted">Tight loops, fewer branches, and cache‑friendly data. Built to be fast on real machines.</p>
-          </div>
-          <div class="chap-content" data-idx="2" data-bg="background-photos/white.jpeg">
-            <h2>Elegance</h2>
-            <p class="muted">Readable code, predictable behavior, and components that compose cleanly.</p>
-          </div>
-          <div class="chap-content" data-idx="3" data-bg="background-photos/black.jpeg">
-            <h2>Simplicity</h2>
-            <p class="muted">Less surface area, more capability. Ship what matters and delete the rest.</p>
+            <img src="background-photos/black.jpeg" alt="Hero image">
           </div>
         </div>
       </div>
-
-      <!-- Markers (optional). JS will auto‑create if absent; included here for clarity & control. -->
-      <div class="chapter" data-idx="1" data-bg="background-photos/black.jpeg"></div>
-      <div class="chapter" data-idx="2" data-bg="background-photos/white.jpeg"></div>
-      <div class="chapter" data-idx="3" data-bg="background-photos/black.jpeg"></div>
     </section>
 
     <section id="features" class="features">
@@ -241,30 +196,11 @@
       </div>
     </section>
 
-    <footer class="footer" aria-label="Footer">
+    <footer class="footer">
       <div class="container">
         <p>&copy; <span id="year"></span> My Portfolio. All rights reserved.</p>
       </div>
     </footer>
     <script src="main.js"></script>
-    <script>
-      (function(){
-        const header = document.querySelector('.header[data-auto-theme]');
-        const hero = document.querySelector('.hero');
-        if(!header || !hero) return;
-        const io = new IntersectionObserver((entries)=>{
-          const e = entries[0];
-          if(!e) return;
-          if (e.isIntersecting) {
-            header.classList.add('theme-light');
-            header.classList.remove('theme-solid');
-          } else {
-            header.classList.remove('theme-light');
-            header.classList.add('theme-solid');
-          }
-        }, { threshold: 0.01 });
-        io.observe(hero);
-      })();
-    </script>
   </body>
 </html>
